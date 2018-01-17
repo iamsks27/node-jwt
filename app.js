@@ -32,7 +32,7 @@ app.post('/api/posts', verifyToken, (req, res) => {
 
 app.get('/api/login', (req, res) => {
     const payload = {
-        subject: "tribe"
+        sub: "tribe"
     };
     const secretKey = config.secretKey;
     const encryptionAlgorithm = config.algorithm;
