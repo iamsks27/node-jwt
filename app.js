@@ -30,6 +30,24 @@ app.post('/api/posts', verifyToken, (req, res) => {
     });
 });
 
+app.get('/api/login', (req, res) => {
+    const payload = {
+        subject: "tribe"
+    };
+    const secretKey = config.secretKey;
+    const encryptionAlgorithm = config.algorithm;
+    const expireTime = config.expireTime;
+    const options = {
+        algorithm: encryptionAlgorithm,
+        expiresIn: expireTime
+    }
+    //sign takes payload and secret key to generate token
+    jwt.sign(payload, secretKey, options, (err, token) => {
+        res.send({ token });
+    });
+
+});
+
 app.post('/api/login', (req, res) => {
 
     // const payloadUser = req.body.user;
