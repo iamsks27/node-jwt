@@ -1,4 +1,5 @@
 module.exports = {
-    secretKey: 'lava@international.in',
-    expireTime: '1h'
+    secretKey: 'e1@D6V8D',
+    expireTime: '1h',
+    algorithm: 'HS256'
 }
