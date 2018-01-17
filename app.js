@@ -31,9 +31,12 @@ app.post('/api/posts', verifyToken, (req, res) => {
 });
 
 app.get('/api/login', (req, res) => {
+    const sub = req.query.sub;
+
     const payload = {
-        sub: "tribe"
+        sub: sub || "tribe"
     };
+
     const secretKey = config.secretKey;
     const encryptionAlgorithm = config.algorithm;
     const expireTime = config.expireTime;
@@ -57,10 +60,12 @@ app.post('/api/login', (req, res) => {
     //     email: 'shivam@lavainternational.in'
     // };
     // const user = payloadUser || defaultUser;
+    const sub = req.query.sub;
 
     const payload = {
-        subject: "tribe"
+        subject: sub || 'tribe'
     };
+
     const secretKey = config.secretKey;
     const encryptionAlgorithm = config.algorithm;
     const expireTime = config.expireTime;
